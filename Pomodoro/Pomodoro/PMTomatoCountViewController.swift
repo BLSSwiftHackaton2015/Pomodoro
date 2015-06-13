@@ -13,40 +13,35 @@ class PMTomatoCountViewController: UIViewController {
 
     @IBOutlet weak var tomatoImage: UIImageView!
     @IBOutlet weak var tomatoCounter: UILabel!
-
-    @IBOutlet weak var toRemove: UILabel!
-    @IBOutlet weak var startAnimation: UIButton!
-    
-    
-    
-    @IBAction func startAnim(sender: AnyObject) {
+    @IBAction func runAni(sender: AnyObject) {
         
-        runAnimation()
-        
+        self.updateCounter()
         
     }
-    
-    
-    
     var counter: Int = 0;
     
-    var pulseAnimation: CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-    
-    func runAnimation() {
+    private func runAnimation() {
         
-        var tr: CATransform3D = CATransform3DIdentity;
 
-        tr = CATransform3DScale(tr, 1, 1, 3);
+        tomatoImage.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.001, 0.001)
         
-        pulseAnimation.duration = 1.0
-        pulseAnimation.toValue = NSValue(CATransform3D: tr)
-        pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        pulseAnimation.autoreverses = true
-        pulseAnimation.repeatCount = 0
-        self.toRemove.layer.addAnimation(pulseAnimation, forKey: "opacity")
         
-      
-    
+        UIView.animateWithDuration(0.3/1.5, animations: {
+            self.tomatoImage.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1)
+            
+        }) { _ in
+            UIView.animateWithDuration(0.3/2, animations: {
+                            self.tomatoImage.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9)
+                
+                }) { _ in
+                    
+                    UIView.animateWithDuration(0.3/2, animations: { () -> Void in
+                        self.tomatoImage.transform = CGAffineTransformIdentity
+                    })
+                    
+            }
+        }
+        
     }
     
     func updateCounter() {
@@ -74,26 +69,6 @@ class PMTomatoCountViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     /*
     // MARK: - Navigation
