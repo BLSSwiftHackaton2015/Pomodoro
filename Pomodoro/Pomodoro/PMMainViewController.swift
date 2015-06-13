@@ -16,8 +16,11 @@ class PMMainViewController: UIViewController, PMSlideControlDelegate {
     @IBOutlet private weak var pauseButton: UIButton!
     @IBOutlet private weak var sliderControl: PMSlideControl!
     @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet weak var tomatoIcon: UIImageView!
+    @IBOutlet weak var tomatoCountLabel: UILabel!
     
     private var selectedTimeInterval: NSTimeInterval = 0
+    private var currentTomatoCounter: Int = 0
     
     private var timerController : PMTimer?;
     private var _timerState: PMTimerState = .Stopped
@@ -44,6 +47,8 @@ class PMMainViewController: UIViewController, PMSlideControlDelegate {
         self.pauseButton.makeWhiteWithRedText()
         
         self.updateButtons(false)
+
+        self.validateStartButton(false)
         
         self.timerController = PMTimer()
         self.timerController?.onUpdate = { (secondsLeft: NSTimeInterval) in
@@ -51,7 +56,8 @@ class PMMainViewController: UIViewController, PMSlideControlDelegate {
         }
         
         self.timerController?.onCycleFinished = {
-            println("tu dodaj pomidora!!!")
+            self.tomatoCountLabel.text = String(++self.currentTomatoCounter)
+            self.animateTomato()
         }
     }
     
@@ -67,12 +73,33 @@ class PMMainViewController: UIViewController, PMSlideControlDelegate {
     }
     
     
+    private func animateTomato() {
+//        tomatoImage.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.2, 1.2)
+        
+        let duration = 0.2
+        
+        UIView.animateWithDuration(duration, animations: {
+            self.tomatoIcon.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.2, 1.2)
+            
+            }) { _ in
+                UIView.animateWithDuration(duration, animations: {
+                    self.tomatoIcon.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9)
+                    
+                    }) { _ in
+                        UIView.animateWithDuration(duration, animations: { () -> Void in
+                            self.tomatoIcon.transform = CGAffineTransformIdentity
+                        })
+                }
+        }
+    }
     
     /// MARK: - Buttons Logic
     @IBAction func startPressed(sender: AnyObject) {
         self.timerState = .Running
         self.updateButtons(true)
         timerController?.start(self.selectedTimeInterval)
+        
+        self.sliderControl.userInteractionEnabled = false
         
         NSUserDefaults.standardUserDefaults().setStartTimeInterval(NSDate().timeIntervalSince1970)
     }
@@ -81,6 +108,8 @@ class PMMainViewController: UIViewController, PMSlideControlDelegate {
         self.timerState = .Stopped
         self.updateButtons(true)
         timerController?.stop()
+        
+        self.sliderControl.userInteractionEnabled = true
         
         NSUserDefaults.standardUserDefaults().removeStartTime()
         NSUserDefaults.standardUserDefaults().removeTimeInterval()
@@ -116,10 +145,23 @@ class PMMainViewController: UIViewController, PMSlideControlDelegate {
         button.enabled = visible == true
     }
     
+    private func validateStartButton(animated: Bool) {
+        let valid = self.selectedTimeInterval >= 1 * 60
+        self.startButton.enabled = valid
+        
+        UIView.animateWithDuration(animated ? 0.3 : 0, animations: { () -> Void in
+            self.startButton.alpha = valid ? 1 : 0.7
+        })
+    }
+    
     /// MARK: UISlideControlDelegate
     func slideControlDidSelectTimeInterval(ti: NSTimeInterval) {
         self.selectedTimeInterval = ti
-        self.updateLabelWithSeconds(ti)
+        
+        if self.timerState != .Running {
+            self.updateLabelWithSeconds(ti)
+            self.validateStartButton(true)
+        }
     }
 }
 
