@@ -10,16 +10,15 @@ import Foundation
 
 extension NSUserDefaults {
     
-    static let PMStartTimeInterval = "PMStartTimeInterval"
-    static let PMTimeInterval = "PMTimeInterval"
-    
+    private static let PMStartTimeInterval = "PMStartTimeInterval"
+    private static let PMTimeInterval = "PMTimeInterval"
     
     /// Start Time
     func setStartTimeInterval(ti: NSTimeInterval) {
         self.setDouble(ti, forKey: NSUserDefaults.PMStartTimeInterval)
         self.synchronize()
     }
-    
+
     func getStartTime() {
         self.doubleForKey(NSUserDefaults.PMStartTimeInterval)
     }
