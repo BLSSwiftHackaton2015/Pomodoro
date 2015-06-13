@@ -21,6 +21,8 @@ class PMSlideControl: UIControl, UIScrollViewDelegate {
     private var mainTrailingConstraint: NSLayoutConstraint?
     private var firstElement: UIView!
     private var lastElement: UIView!
+    private var offsetXAtStart: CGFloat = 0
+    private var update = true
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -135,6 +137,22 @@ class PMSlideControl: UIControl, UIScrollViewDelegate {
         self.mainTrailingConstraint?.constant = -(CGRectGetWidth(self.frame) / 2.0)
     }
     
+    func prepareToPlay() {
+        self.update = false
+        self.offsetXAtStart = self.scrollView.contentOffset.x
+    }
+
+    func endPlay() {
+        self.update = true
+    }
+    
+    func reportTime(ti: NSTimeInterval) {
+        var percentage: CGFloat = CGFloat((ti + 30) / (60 * 60))
+        var offsetX = (percentage * self.offsetXAtStart) * 10
+        println(offsetX)
+        self.scrollView.setContentOffset(CGPoint(x:offsetX, y: 0), animated: true)
+    }
+    
     
     /// MARK: UIScrollViewDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -142,6 +160,9 @@ class PMSlideControl: UIControl, UIScrollViewDelegate {
     }
     
     private func calculateSeconds(offsetX: CGFloat) {
+        if self.update == false {
+            return
+        }
         if (offsetX < 0) {
             return
         }

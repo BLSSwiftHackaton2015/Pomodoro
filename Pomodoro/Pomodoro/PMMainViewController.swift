@@ -53,6 +53,7 @@ class PMMainViewController: UIViewController, PMSlideControlDelegate {
         self.timerController = PMTimer()
         self.timerController?.onUpdate = { (secondsLeft: NSTimeInterval) in
             self.updateLabelWithSeconds(secondsLeft)
+            self.sliderControl.reportTime(secondsLeft)
         }
         
         self.timerController?.onCycleFinished = {
@@ -65,7 +66,6 @@ class PMMainViewController: UIViewController, PMSlideControlDelegate {
         let seconds: Int = Int(ti % 60)
         let minutes: Int = Int(ti / 60)
         self.timeLabel.text = String(format: "%02d:%02d", arguments: [minutes , seconds])
-        println(self.timeLabel.text)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -97,6 +97,8 @@ class PMMainViewController: UIViewController, PMSlideControlDelegate {
     @IBAction func startPressed(sender: AnyObject) {
         self.timerState = .Running
         self.updateButtons(true)
+        
+        self.sliderControl.prepareToPlay()
         timerController?.start(self.selectedTimeInterval)
         
         self.sliderControl.userInteractionEnabled = false
@@ -109,6 +111,7 @@ class PMMainViewController: UIViewController, PMSlideControlDelegate {
         self.updateButtons(true)
         timerController?.stop()
         
+        self.sliderControl.endPlay()
         self.sliderControl.userInteractionEnabled = true
         
         NSUserDefaults.standardUserDefaults().removeStartTime()
