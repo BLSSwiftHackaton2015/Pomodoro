@@ -24,6 +24,7 @@
 		6DBA51831B2C3E81002ECC3F /* PMTimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA51821B2C3E81002ECC3F /* PMTimerState.swift */; };
 		6DBA51871B2C401F002ECC3F /* PMUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA51861B2C401F002ECC3F /* PMUIButton.swift */; };
 		6DBA51891B2C425C002ECC3F /* PMUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA51881B2C425C002ECC3F /* PMUIColor.swift */; };
+		6DBA518B1B2C4939002ECC3F /* PMSlideControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA518A1B2C4939002ECC3F /* PMSlideControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		6DBA51821B2C3E81002ECC3F /* PMTimerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMTimerState.swift; sourceTree = "<group>"; };
 		6DBA51861B2C401F002ECC3F /* PMUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMUIButton.swift; sourceTree = "<group>"; };
 		6DBA51881B2C425C002ECC3F /* PMUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMUIColor.swift; sourceTree = "<group>"; };
+		6DBA518A1B2C4939002ECC3F /* PMSlideControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMSlideControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				6DBA513F1B2C2258002ECC3F /* LaunchScreen.xib */,
 				6DBA51341B2C2258002ECC3F /* Supporting Files */,
 				6DBA51561B2C2789002ECC3F /* PMNSUserDefaults.swift */,
+				6DBA518A1B2C4939002ECC3F /* PMSlideControl.swift */,
 				6DBA51821B2C3E81002ECC3F /* PMTimerState.swift */,
 				6DBA51861B2C401F002ECC3F /* PMUIButton.swift */,
 				6DBA51881B2C425C002ECC3F /* PMUIColor.swift */,
@@ -381,6 +384,7 @@
 			files = (
 				6DBA51831B2C3E81002ECC3F /* PMTimerState.swift in Sources */,
 				6DBA51391B2C2258002ECC3F /* PMMainViewController.swift in Sources */,
+				6DBA518B1B2C4939002ECC3F /* PMSlideControl.swift in Sources */,
 				6DBA51371B2C2258002ECC3F /* AppDelegate.swift in Sources */,
 				6DBA51571B2C2789002ECC3F /* PMNSUserDefaults.swift in Sources */,
 				6DBA51891B2C425C002ECC3F /* PMUIColor.swift in Sources */,

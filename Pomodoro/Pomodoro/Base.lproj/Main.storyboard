@@ -84,9 +84,18 @@
                                     <constraint firstItem="9ec-Ns-7WK" firstAttribute="top" secondItem="Jqh-74-uQQ" secondAttribute="top" id="wqD-4l-rdT"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykU-Zo-bHW" customClass="PMSlideControl" customModule="Pomodoro" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="365" width="600" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="3Sz-SA-wBs"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ykU-Zo-bHW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="8jB-ht-g25"/>
+                            <constraint firstAttribute="trailing" secondItem="ykU-Zo-bHW" secondAttribute="trailing" id="TZq-Xx-uyg"/>
+                            <constraint firstItem="Jqh-74-uQQ" firstAttribute="top" secondItem="ykU-Zo-bHW" secondAttribute="bottom" constant="60" id="YHu-4O-FtY"/>
                             <constraint firstAttribute="trailing" secondItem="Jqh-74-uQQ" secondAttribute="trailing" id="b2o-Zh-0cI"/>
                             <constraint firstItem="Jqh-74-uQQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bka-Z3-sv3"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Jqh-74-uQQ" secondAttribute="bottom" id="jRn-aS-zbO"/>
@@ -95,6 +104,7 @@
                     <connections>
                         <outlet property="pauseButton" destination="9ec-Ns-7WK" id="rSU-30-vV1"/>
                         <outlet property="resumeButton" destination="3DX-Gt-9RN" id="3ul-Rk-hR0"/>
+                        <outlet property="sliderControl" destination="ykU-Zo-bHW" id="Kdm-rj-9uc"/>
                         <outlet property="startButton" destination="dCv-jT-JQ3" id="Far-9S-paW"/>
                         <outlet property="stopButton" destination="AtX-RU-t7z" id="xzP-2Q-nYC"/>
                     </connections>
