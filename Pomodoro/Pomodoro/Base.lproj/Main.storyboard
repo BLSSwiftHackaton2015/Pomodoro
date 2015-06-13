@@ -96,15 +96,40 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scQ-vn-PfO" userLabel="Bottom Container">
+                                <rect key="frame" x="265.5" y="244" width="69.5" height="46"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pomodoro-icon" translatesAutoresizingMaskIntoConstraints="NO" id="bnv-KB-UFH">
+                                        <rect key="frame" x="8" y="8" width="25" height="30"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlQ-0m-URn">
+                                        <rect key="frame" x="41" y="1.5" width="20.5" height="42.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="36"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rlQ-0m-URn" secondAttribute="trailing" constant="8" id="AD5-0c-E6a"/>
+                                    <constraint firstItem="bnv-KB-UFH" firstAttribute="top" secondItem="scQ-vn-PfO" secondAttribute="top" constant="8" id="Vka-aa-pzi"/>
+                                    <constraint firstItem="bnv-KB-UFH" firstAttribute="centerY" secondItem="rlQ-0m-URn" secondAttribute="centerY" id="Xse-21-t5U"/>
+                                    <constraint firstItem="rlQ-0m-URn" firstAttribute="leading" secondItem="bnv-KB-UFH" secondAttribute="trailing" constant="8" id="YRp-a9-z5a"/>
+                                    <constraint firstAttribute="height" constant="46" id="bER-sr-MXB"/>
+                                    <constraint firstAttribute="bottom" secondItem="bnv-KB-UFH" secondAttribute="bottom" constant="8" id="qLp-Ge-mqg"/>
+                                    <constraint firstItem="bnv-KB-UFH" firstAttribute="leading" secondItem="scQ-vn-PfO" secondAttribute="leading" constant="8" id="yUb-5u-Xdq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="scQ-vn-PfO" firstAttribute="top" secondItem="ZGw-wj-r4s" secondAttribute="bottom" constant="40" id="2p6-9w-tGt"/>
                             <constraint firstAttribute="centerX" secondItem="ZGw-wj-r4s" secondAttribute="centerX" id="7hu-RO-A9a"/>
                             <constraint firstItem="ykU-Zo-bHW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="8jB-ht-g25"/>
                             <constraint firstAttribute="trailing" secondItem="ykU-Zo-bHW" secondAttribute="trailing" id="TZq-Xx-uyg"/>
                             <constraint firstItem="Jqh-74-uQQ" firstAttribute="top" secondItem="ykU-Zo-bHW" secondAttribute="bottom" constant="60" id="YHu-4O-FtY"/>
                             <constraint firstAttribute="trailing" secondItem="Jqh-74-uQQ" secondAttribute="trailing" id="b2o-Zh-0cI"/>
                             <constraint firstItem="Jqh-74-uQQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bka-Z3-sv3"/>
+                            <constraint firstAttribute="centerX" secondItem="scQ-vn-PfO" secondAttribute="centerX" id="duv-YU-4MX"/>
                             <constraint firstItem="ZGw-wj-r4s" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="70" id="gcn-Xi-JQO"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Jqh-74-uQQ" secondAttribute="bottom" id="jRn-aS-zbO"/>
                         </constraints>
@@ -116,10 +141,15 @@
                         <outlet property="startButton" destination="dCv-jT-JQ3" id="Far-9S-paW"/>
                         <outlet property="stopButton" destination="AtX-RU-t7z" id="xzP-2Q-nYC"/>
                         <outlet property="timeLabel" destination="ZGw-wj-r4s" id="bwn-e8-FfC"/>
+                        <outlet property="tomatoCountLabel" destination="rlQ-0m-URn" id="io2-iK-AxA"/>
+                        <outlet property="tomatoIcon" destination="bnv-KB-UFH" id="eml-or-sFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="pomodoro-icon" width="25" height="30"/>
+    </resources>
 </document>

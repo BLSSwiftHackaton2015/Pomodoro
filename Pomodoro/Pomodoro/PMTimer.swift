@@ -10,79 +10,52 @@ import Foundation
 import UIKit
 
 class PMTimer : NSObject {
+    typealias UpdateBlock = (NSTimeInterval) -> ()
+    typealias FinishedBlock = Void -> Void
     
-    var onUpdate: ((NSTimeInterval) -> ())?
-    var onCycleFinished: (() -> ())?
+    var onUpdate: UpdateBlock?
+    var onCycleFinished: FinishedBlock?
     
-    var timer: NSTimer?
+    private var timer: NSTimer?
     
-    var secondsLeft:NSTimeInterval = 0
-    var minutesInCycle:NSTimeInterval = 0
+    private var secondsLeft: NSTimeInterval = 0
+    private var totalSeconds: NSTimeInterval = 0
     
-    enum TimerState{case Running; case Stopped; case Paused}
-    var timerState : TimerState = .Stopped
-    
-    
-    func update()
-    {
-        if (timerState == TimerState.Running)
-        {
-            
-            
-            if secondsLeft > 0
-            {
-                secondsLeft--;
-                onUpdate!(secondsLeft)
-            }
-            else
-            {
-                secondsLeft = minutesInCycle * 60;
-                onCycleFinished!()
-            }
-            
-            
-        }
-        else
-        {
-            print("WTF? update called in state \(timerState)")
+    func update() {
+        if secondsLeft > 1 {
+            onUpdate?(secondsLeft)
+            secondsLeft--;
+        } else {
+            onUpdate?(secondsLeft)
+            secondsLeft = self.totalSeconds;
+            onCycleFinished?()
         }
     }
     
-    
-    func start(minutes: Int)
-    {
-        timerState = TimerState.Running
-  
-        minutesInCycle = NSTimeInterval(1+minutes)
-        secondsLeft = minutesInCycle * 60
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
-        
-        
+    func start(totalSeconds: NSTimeInterval) {
+        self.totalSeconds = totalSeconds
+        self.secondsLeft = self.totalSeconds
+        self.update()
+        self.scheduleTimer()
     }
     
-    func resume()
-    {
-        timerState = TimerState.Running
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
-        
+    func resume() {
+        self.scheduleTimer()
     }
     
-    func stop()
-    {
-        timerState = TimerState.Stopped
+    
+    func stop() {
         timer?.invalidate()
-        onUpdate!(minutesInCycle*60)
+        onUpdate?(self.totalSeconds)
     }
     
     
-    func pause()
-    {
-        
-        timerState = TimerState.Paused
+    func pause() {
         timer?.invalidate()
     }
     
-    
-    
+    private func scheduleTimer() {
+        timer?.invalidate()
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+    }
 }
