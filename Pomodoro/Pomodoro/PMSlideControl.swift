@@ -31,9 +31,7 @@ class PMSlideControl: UIControl {
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(0)-[scrollView]-(0)-|", options: nil, metrics: nil, views: ["scrollView": self.scrollView])
         
         self.addConstraints(horizontalConstraints)
-        self.addConstraints(verticalConstraints)
-        
-        self.scrollView.backgroundColor = UIColor.blueColor()
+        self.addConstraints(verticalConstraints)        
     }
     
     private func createPattern() {
@@ -61,6 +59,12 @@ class PMSlideControl: UIControl {
 
             self.scrollView.addConstraints([top, leading])
             
+            if previousView is UIScrollView {
+                self.createLabelWithText("\(idx)", attachToView: patternView, isFirst: true)
+            }
+            
+            self.createLabelWithText("\(idx * 5)", attachToView: patternView, isFirst: true)
+            
             previousView = patternView
         }
         
@@ -73,7 +77,35 @@ class PMSlideControl: UIControl {
         let leading = NSLayoutConstraint(item: lastView, attribute: .Leading, relatedBy: .Equal, toItem: previousView, attribute: .Trailing, multiplier: 1, constant: 0)
         self.mainTrailingConstraint = NSLayoutConstraint(item: lastView, attribute: .Trailing, relatedBy: .Equal, toItem: self.scrollView, attribute: .Trailing, multiplier: 1, constant: 0)
         
+        self.createLabelWithText("\(60)", attachToView: lastView, isFirst: false)
+        
         self.scrollView.addConstraints([leading, top, self.mainTrailingConstraint!])
+    }
+    
+    private func createLabelWithText(text: String, attachToView: UIView, isFirst: Bool) {
+        var label = UILabel(frame: CGRectZero)
+        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.textColor = UIColor.whiteColor()
+        label.textAlignment = NSTextAlignment.Center
+        label.text = text
+        label.font = UIFont.systemFontOfSize(16)
+        
+        self.scrollView.addSubview(label)
+        
+        let width = NSLayoutConstraint(item: label, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 30)
+        label.addConstraint(width)
+        
+        let top = NSLayoutConstraint(item: label, attribute: .Top, relatedBy: .Equal, toItem: attachToView, attribute: .Bottom, multiplier: 1, constant: 10)
+
+        let centerX: NSLayoutConstraint?
+        
+        if isFirst {
+            centerX = NSLayoutConstraint(item: label, attribute: .CenterX, relatedBy: .Equal, toItem: attachToView, attribute: .Leading, multiplier: 1, constant: 2)
+        } else {
+            centerX = NSLayoutConstraint(item: label, attribute: .CenterX, relatedBy: .Equal, toItem: attachToView, attribute: .Trailing, multiplier: 1, constant: 2)
+        }
+        
+        self.scrollView.addConstraints([top, centerX!])
     }
     
     private func createArrow() {

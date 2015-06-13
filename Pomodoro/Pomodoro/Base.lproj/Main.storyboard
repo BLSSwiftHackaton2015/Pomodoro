@@ -85,9 +85,9 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykU-Zo-bHW" customClass="PMSlideControl" customModule="Pomodoro" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="330" width="600" height="100"/>
+                                <rect key="frame" x="0.0" y="365" width="600" height="105"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="3Sz-SA-wBs"/>
+                                    <constraint firstAttribute="height" constant="105" id="3Sz-SA-wBs"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -95,7 +95,7 @@
                         <constraints>
                             <constraint firstItem="ykU-Zo-bHW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="8jB-ht-g25"/>
                             <constraint firstAttribute="trailing" secondItem="ykU-Zo-bHW" secondAttribute="trailing" id="TZq-Xx-uyg"/>
-                            <constraint firstAttribute="centerY" secondItem="ykU-Zo-bHW" secondAttribute="centerY" constant="-80" id="Wnz-cx-t3P"/>
+                            <constraint firstItem="Jqh-74-uQQ" firstAttribute="top" secondItem="ykU-Zo-bHW" secondAttribute="bottom" constant="60" id="YHu-4O-FtY"/>
                             <constraint firstAttribute="trailing" secondItem="Jqh-74-uQQ" secondAttribute="trailing" id="b2o-Zh-0cI"/>
                             <constraint firstItem="Jqh-74-uQQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bka-Z3-sv3"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Jqh-74-uQQ" secondAttribute="bottom" id="jRn-aS-zbO"/>
