@@ -85,9 +85,9 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykU-Zo-bHW" customClass="PMSlideControl" customModule="Pomodoro" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="365" width="600" height="105"/>
+                                <rect key="frame" x="0.0" y="362" width="600" height="108"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="105" id="3Sz-SA-wBs"/>
+                                    <constraint firstAttribute="height" constant="108" id="3Sz-SA-wBs"/>
                                 </constraints>
                             </view>
                         </subviews>
