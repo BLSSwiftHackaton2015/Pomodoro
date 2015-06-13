@@ -14,6 +14,7 @@ class PMMainViewController: UIViewController {
     @IBOutlet private weak var stopButton: UIButton!
     @IBOutlet private weak var resumeButton: UIButton!
     @IBOutlet private weak var pauseButton: UIButton!
+    @IBOutlet private weak var sliderControl: PMSlideControl!
     
     private var _timerState: PMTimerState = .Stopped
     private var timerState: PMTimerState {
