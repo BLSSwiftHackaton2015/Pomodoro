@@ -10,19 +10,24 @@ import UIKit
 
 class PMMainViewController: UIViewController {
     
-    private enum PMButtonState {
-        case Stopped, Running, Paused
-    }
-
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var stopButton: UIButton!
     @IBOutlet private weak var resumeButton: UIButton!
     @IBOutlet private weak var pauseButton: UIButton!
     
-    private var buttonState: PMButtonState = .Stopped
+    private var _timerState: PMTimerState = .Stopped
+    private var timerState: PMTimerState {
+        set {
+            _timerState = newValue
+            NSUserDefaults.standardUserDefaults().setTimerState(newValue)
+        }
+        
+        get { return _timerState }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        _timerState = NSUserDefaults.standardUserDefaults().getTimerState()
         self.startButton.backgroundColor = UIColor.clearColor()
         self.stopButton.backgroundColor = UIColor.clearColor()
         self.resumeButton.backgroundColor = UIColor.clearColor()
@@ -34,22 +39,22 @@ class PMMainViewController: UIViewController {
     
     /// MARK: - Buttons Logic
     @IBAction func startPressed(sender: AnyObject) {
-        self.buttonState = .Running
+        self.timerState = .Running
         self.updateButtons(true)
     }
     
     @IBAction func stopPressed(sender: AnyObject) {
-        self.buttonState = .Stopped
+        self.timerState = .Stopped
         self.updateButtons(true)
     }
     
     @IBAction func resumePressed(sender: AnyObject) {
-        self.buttonState = .Running
+        self.timerState = .Running
         self.updateButtons(true)
     }
     
     @IBAction func pausePressed(sender: AnyObject) {
-        self.buttonState = .Paused
+        self.timerState = .Paused
         self.updateButtons(true)
     }
     
@@ -57,10 +62,10 @@ class PMMainViewController: UIViewController {
         let duration = animated ? 0.3 : 0
         
         UIView.animateWithDuration(duration, animations: { () -> Void in
-            self.changeStateOfButton(self.startButton, visible: self.buttonState == .Stopped)
-            self.changeStateOfButton(self.stopButton, visible: self.buttonState == .Paused)
-            self.changeStateOfButton(self.pauseButton, visible: self.buttonState == .Running)
-            self.changeStateOfButton(self.resumeButton, visible: self.buttonState == .Paused)
+            self.changeStateOfButton(self.startButton, visible: self.timerState == .Stopped)
+            self.changeStateOfButton(self.stopButton, visible: self.timerState == .Paused)
+            self.changeStateOfButton(self.pauseButton, visible: self.timerState == .Running)
+            self.changeStateOfButton(self.resumeButton, visible: self.timerState == .Paused)
         })
     }
     

@@ -10,34 +10,50 @@ import Foundation
 
 extension NSUserDefaults {
     
-    private static let PMStartTimeInterval = "PMStartTimeInterval"
-    private static let PMTimeInterval = "PMTimeInterval"
+    private static let PMStartTimeIntervalKey = "PMStartTimeInterval"
+    private static let PMTimeIntervalKey = "PMTimeInterval"
+    private static let PMTimerStateKey = "PMTimerState"
+    
+    func pmRegisterDefaults() {
+        self.registerDefaults([NSUserDefaults.PMTimerStateKey: PMTimerState.Stopped.rawValue])
+    }
     
     /// Start Time
     func setStartTimeInterval(ti: NSTimeInterval) {
-        self.setDouble(ti, forKey: NSUserDefaults.PMStartTimeInterval)
+        self.setDouble(ti, forKey: NSUserDefaults.PMStartTimeIntervalKey)
         self.synchronize()
     }
 
     func getStartTime() {
-        self.doubleForKey(NSUserDefaults.PMStartTimeInterval)
+        self.doubleForKey(NSUserDefaults.PMStartTimeIntervalKey)
     }
     
     func removeStartTime() {
-        self.removeObjectForKey(NSUserDefaults.PMStartTimeInterval)
+        self.removeObjectForKey(NSUserDefaults.PMStartTimeIntervalKey)
     }
     
     /// Time Interval
     func setTimeInterval(ti: NSTimeInterval) {
-        self.setDouble(ti, forKey: NSUserDefaults.PMTimeInterval)
+        self.setDouble(ti, forKey: NSUserDefaults.PMTimeIntervalKey)
         self.synchronize()
     }
     
     func getTimeInterval() {
-        self.doubleForKey(NSUserDefaults.PMTimeInterval)
+        self.doubleForKey(NSUserDefaults.PMTimeIntervalKey)
     }
     
     func removeTimeInterval() {
-        self.removeObjectForKey(NSUserDefaults.PMTimeInterval)
+        self.removeObjectForKey(NSUserDefaults.PMTimeIntervalKey)
+    }
+    
+    
+    /// Timer State
+    func setTimerState(ts: PMTimerState) {
+        self.setInteger(ts.rawValue, forKey: "")
+        self.synchronize()
+    }
+    
+    func getTimerState() -> PMTimerState {
+        return PMTimerState(rawValue: self.integerForKey(""))!
     }
 }

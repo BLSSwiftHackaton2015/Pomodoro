@@ -21,6 +21,7 @@
 		6DBA51721B2C2BBB002ECC3F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DBA51701B2C2BBB002ECC3F /* Interface.storyboard */; };
 		6DBA51741B2C2BBB002ECC3F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DBA51731B2C2BBB002ECC3F /* Images.xcassets */; };
 		6DBA51771B2C2BBB002ECC3F /* Pomodoro WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6DBA515C1B2C2BBA002ECC3F /* Pomodoro WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6DBA51831B2C3E81002ECC3F /* PMTimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA51821B2C3E81002ECC3F /* PMTimerState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		6DBA516F1B2C2BBB002ECC3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DBA51711B2C2BBB002ECC3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		6DBA51731B2C2BBB002ECC3F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6DBA51821B2C3E81002ECC3F /* PMTimerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMTimerState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				6DBA513F1B2C2258002ECC3F /* LaunchScreen.xib */,
 				6DBA51341B2C2258002ECC3F /* Supporting Files */,
 				6DBA51561B2C2789002ECC3F /* PMNSUserDefaults.swift */,
+				6DBA51821B2C3E81002ECC3F /* PMTimerState.swift */,
 			);
 			path = Pomodoro;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DBA51831B2C3E81002ECC3F /* PMTimerState.swift in Sources */,
 				6DBA51391B2C2258002ECC3F /* PMMainViewController.swift in Sources */,
 				6DBA51371B2C2258002ECC3F /* AppDelegate.swift in Sources */,
 				6DBA51571B2C2789002ECC3F /* PMNSUserDefaults.swift in Sources */,
