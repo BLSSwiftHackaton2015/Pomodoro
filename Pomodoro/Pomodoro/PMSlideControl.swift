@@ -147,10 +147,10 @@ class PMSlideControl: UIControl, UIScrollViewDelegate {
     }
     
     func reportTime(ti: NSTimeInterval) {
-        var percentage: CGFloat = CGFloat((ti + 30) / (60 * 60))
-        var offsetX = (percentage * self.offsetXAtStart) * 10
-        println(offsetX)
-        self.scrollView.setContentOffset(CGPoint(x:offsetX, y: 0), animated: true)
+//        var percentage: CGFloat = CGFloat((ti + 60) / (60 * 60))
+//        var offsetX = (percentage * self.offsetXAtStart) * 10
+//        println(offsetX)
+//        self.scrollView.setContentOffset(CGPoint(x:offsetX, y: 0), animated: true)
     }
     
     
