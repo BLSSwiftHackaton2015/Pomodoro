@@ -13,6 +13,9 @@ extension NSUserDefaults {
     private static let PMStartTimeIntervalKey = "PMStartTimeInterval"
     private static let PMTimeIntervalKey = "PMTimeInterval"
     private static let PMTimerStateKey = "PMTimerState"
+    private static let PMTimeLeftKey = "PMTimeLeft"
+    private static let PMTomatosCountKey = "PMTomatosCount"
+
     
     func pmRegisterDefaults() {
         self.registerDefaults([NSUserDefaults.PMTimerStateKey: PMTimerState.Stopped.rawValue])
@@ -24,8 +27,8 @@ extension NSUserDefaults {
         self.synchronize()
     }
 
-    func getStartTime() {
-        self.doubleForKey(NSUserDefaults.PMStartTimeIntervalKey)
+    func getStartTime() -> NSTimeInterval {
+        return NSTimeInterval(self.doubleForKey(NSUserDefaults.PMStartTimeIntervalKey))
     }
     
     func removeStartTime() {
@@ -38,8 +41,9 @@ extension NSUserDefaults {
         self.synchronize()
     }
     
-    func getTimeInterval() {
-        self.doubleForKey(NSUserDefaults.PMTimeIntervalKey)
+
+    func getTimeInterval() -> NSTimeInterval {
+        return NSTimeInterval(self.doubleForKey(NSUserDefaults.PMTimeIntervalKey))
     }
     
     func removeTimeInterval() {
@@ -49,11 +53,40 @@ extension NSUserDefaults {
     
     /// Timer State
     func setTimerState(ts: PMTimerState) {
-        self.setInteger(ts.rawValue, forKey: "")
+        self.setInteger(ts.rawValue, forKey: NSUserDefaults.PMTimerStateKey)
         self.synchronize()
     }
     
     func getTimerState() -> PMTimerState {
-        return PMTimerState(rawValue: self.integerForKey(""))!
+        return PMTimerState(rawValue: self.integerForKey(NSUserDefaults.PMTimerStateKey))!
+    }
+    
+    /// Time left
+    func setTimeLeft(ti: NSTimeInterval) {
+        self.setDouble(ti, forKey: NSUserDefaults.PMTimeLeftKey)
+        self.synchronize()
+    }
+    
+    func getTimeLeft() -> NSTimeInterval {
+        return NSTimeInterval(self.doubleForKey(NSUserDefaults.PMTimeLeftKey))
+    }
+    
+    func removeTimeLeft() {
+        self.removeObjectForKey(NSUserDefaults.PMTimeLeftKey)
+    }
+    
+    /// Tomatos count
+    func setTomatosCount(count: Int) {
+        self.setInteger(count, forKey: NSUserDefaults.PMTomatosCountKey)
+        self.synchronize()
+    }
+    
+    func getTomatosCount() -> Int{
+    
+        return self.integerForKey(NSUserDefaults.PMTomatosCountKey)
+    }
+    
+    func removeTomatosCount() {
+        self.removeObjectForKey(NSUserDefaults.PMTomatosCountKey)
     }
 }
