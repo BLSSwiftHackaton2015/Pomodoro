@@ -13,6 +13,7 @@
 		6DBA513E1B2C2258002ECC3F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DBA513D1B2C2258002ECC3F /* Images.xcassets */; };
 		6DBA51411B2C2258002ECC3F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBA513F1B2C2258002ECC3F /* LaunchScreen.xib */; };
 		6DBA514D1B2C2258002ECC3F /* PomodoroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA514C1B2C2258002ECC3F /* PomodoroTests.swift */; };
+		EFFF2E171B2C2A4200117E3F /* PMTomatoCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFF2E161B2C2A4200117E3F /* PMTomatoCountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		6DBA51461B2C2258002ECC3F /* PomodoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBA514B1B2C2258002ECC3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DBA514C1B2C2258002ECC3F /* PomodoroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTests.swift; sourceTree = "<group>"; };
+		EFFF2E161B2C2A4200117E3F /* PMTomatoCountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMTomatoCountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				6DBA51361B2C2258002ECC3F /* AppDelegate.swift */,
+				EFFF2E161B2C2A4200117E3F /* PMTomatoCountViewController.swift */,
 				6DBA51381B2C2258002ECC3F /* ViewController.swift */,
 				6DBA513A1B2C2258002ECC3F /* Main.storyboard */,
 				6DBA513D1B2C2258002ECC3F /* Images.xcassets */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFFF2E171B2C2A4200117E3F /* PMTomatoCountViewController.swift in Sources */,
 				6DBA51391B2C2258002ECC3F /* ViewController.swift in Sources */,
 				6DBA51371B2C2258002ECC3F /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +413,7 @@
 				6DBA51521B2C2258002ECC3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6DBA51531B2C2258002ECC3F /* Build configuration list for PBXNativeTarget "PomodoroTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				6DBA51551B2C2258002ECC3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tomato Count View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="PMTomatoCountViewController" customModule="Pomodoro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,8 +15,62 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27O-JU-1lW" userLabel="Bottom Container">
+                                <rect key="frame" x="204" y="479" width="193" height="101"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U7T-ey-EUL">
+                                        <rect key="frame" x="8" y="7" width="127" height="86"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="86" id="7GK-2z-aHy"/>
+                                            <constraint firstAttribute="width" constant="127" id="hH8-2I-BsU"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgC-B4-smx">
+                                        <rect key="frame" x="143" y="8" width="42" height="86"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="U7T-ey-EUL" firstAttribute="top" secondItem="27O-JU-1lW" secondAttribute="top" constant="7" id="1Ey-Gm-2xJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="XgC-B4-smx" secondAttribute="bottom" constant="7" id="Cf7-Oz-e5O"/>
+                                    <constraint firstItem="XgC-B4-smx" firstAttribute="top" secondItem="27O-JU-1lW" secondAttribute="top" constant="8" id="KpP-J5-09X"/>
+                                    <constraint firstAttribute="bottom" secondItem="U7T-ey-EUL" secondAttribute="bottom" constant="8" id="Obb-dN-pA1"/>
+                                    <constraint firstAttribute="trailing" secondItem="XgC-B4-smx" secondAttribute="trailing" constant="8" id="Vhr-1p-FgN"/>
+                                    <constraint firstItem="XgC-B4-smx" firstAttribute="leading" secondItem="U7T-ey-EUL" secondAttribute="trailing" constant="8" id="YRL-2r-9iZ"/>
+                                    <constraint firstItem="U7T-ey-EUL" firstAttribute="leading" secondItem="27O-JU-1lW" secondAttribute="leading" constant="8" id="q8u-zz-5sZ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIA-Y5-CRG">
+                                <rect key="frame" x="229" y="276" width="100" height="30"/>
+                                <state key="normal" title="startAnimation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startAnim:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GH1-fg-pEM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa3-9F-Abe">
+                                <rect key="frame" x="251" y="211" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="27O-JU-1lW" secondAttribute="bottom" constant="20" id="GAo-SK-TGY"/>
+                            <constraint firstAttribute="centerX" secondItem="27O-JU-1lW" secondAttribute="centerX" id="qp8-aZ-b51"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startAnimation" destination="iIA-Y5-CRG" id="llk-jH-0NF"/>
+                        <outlet property="toRemove" destination="Fa3-9F-Abe" id="W8A-bg-VHo"/>
+                        <outlet property="tomatoCounter" destination="XgC-B4-smx" id="dO2-Mv-xVI"/>
+                        <outlet property="tomatoImage" destination="U7T-ey-EUL" id="EBg-C0-rBg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
