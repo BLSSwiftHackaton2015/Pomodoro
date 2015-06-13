@@ -11,11 +11,14 @@ import UIKit
 class PMSlideControl: UIControl {
 
     private var scrollView: UIScrollView!
+    private var mainLeadingConstraint: NSLayoutConstraint?
+    private var mainTrailingConstraint: NSLayoutConstraint?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.createScrollView()
         self.createPattern()
+        self.createArrow()
     }
     
     private func createScrollView() {
@@ -51,7 +54,10 @@ class PMSlideControl: UIControl {
             }
             
             let leading = NSLayoutConstraint(item: patternView, attribute: .Leading, relatedBy: .Equal, toItem: previousView, attribute: attribute, multiplier: 1, constant: 0)
-
+            
+            if previousView is UIScrollView {
+                self.mainLeadingConstraint = leading
+            }
 
             self.scrollView.addConstraints([top, leading])
             
@@ -65,8 +71,25 @@ class PMSlideControl: UIControl {
         
         let top = NSLayoutConstraint(item: lastView, attribute: .Top, relatedBy: .Equal, toItem: self.scrollView, attribute: .Top, multiplier: 1, constant: 0)
         let leading = NSLayoutConstraint(item: lastView, attribute: .Leading, relatedBy: .Equal, toItem: previousView, attribute: .Trailing, multiplier: 1, constant: 0)
-        let trailing = NSLayoutConstraint(item: lastView, attribute: .Trailing, relatedBy: .Equal, toItem: self.scrollView, attribute: .Trailing, multiplier: 1, constant: 0)
+        self.mainTrailingConstraint = NSLayoutConstraint(item: lastView, attribute: .Trailing, relatedBy: .Equal, toItem: self.scrollView, attribute: .Trailing, multiplier: 1, constant: 0)
         
-        self.scrollView.addConstraints([leading, top, trailing])
+        self.scrollView.addConstraints([leading, top, self.mainTrailingConstraint!])
+    }
+    
+    private func createArrow() {
+        let arrowView = UIImageView(image: UIImage(named: "marker"))
+        arrowView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.addSubview(arrowView)
+        
+        let centerX = NSLayoutConstraint(item: arrowView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0)
+        let bottom = NSLayoutConstraint(item: arrowView, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1, constant: 0)
+        
+        self.addConstraints([centerX, bottom])
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.mainLeadingConstraint?.constant = CGRectGetWidth(self.frame) / 2.0
+        self.mainTrailingConstraint?.constant = -(CGRectGetWidth(self.frame) / 2.0)
     }
 }
