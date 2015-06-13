@@ -63,7 +63,7 @@ class PMSlideControl: UIControl {
                 self.createLabelWithText("\(idx)", attachToView: patternView, isFirst: true)
             }
             
-            self.createLabelWithText("\(idx * 5)", attachToView: patternView, isFirst: true)
+            self.createLabelWithText("\(5 + (idx * 5))", attachToView: patternView, isFirst: false)
             
             previousView = patternView
         }
@@ -76,8 +76,6 @@ class PMSlideControl: UIControl {
         let top = NSLayoutConstraint(item: lastView, attribute: .Top, relatedBy: .Equal, toItem: self.scrollView, attribute: .Top, multiplier: 1, constant: 0)
         let leading = NSLayoutConstraint(item: lastView, attribute: .Leading, relatedBy: .Equal, toItem: previousView, attribute: .Trailing, multiplier: 1, constant: 0)
         self.mainTrailingConstraint = NSLayoutConstraint(item: lastView, attribute: .Trailing, relatedBy: .Equal, toItem: self.scrollView, attribute: .Trailing, multiplier: 1, constant: 0)
-        
-        self.createLabelWithText("\(60)", attachToView: lastView, isFirst: false)
         
         self.scrollView.addConstraints([leading, top, self.mainTrailingConstraint!])
     }
@@ -121,7 +119,7 @@ class PMSlideControl: UIControl {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.mainLeadingConstraint?.constant = CGRectGetWidth(self.frame) / 2.0
+        self.mainLeadingConstraint?.constant = (CGRectGetWidth(self.frame) / 2.0) - 1
         self.mainTrailingConstraint?.constant = -(CGRectGetWidth(self.frame) / 2.0)
     }
 }
