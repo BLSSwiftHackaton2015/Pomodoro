@@ -8,11 +8,19 @@
 
 import UIKit
 
-class PMSlideControl: UIControl {
+protocol PMSlideControlDelegate {
+    func slideControlDidSelectTimeInterval(ti: NSTimeInterval)
+}
+
+class PMSlideControl: UIControl, UIScrollViewDelegate {
+    
+    var delegate: PMSlideControlDelegate?
 
     private var scrollView: UIScrollView!
     private var mainLeadingConstraint: NSLayoutConstraint?
     private var mainTrailingConstraint: NSLayoutConstraint?
+    private var firstElement: UIView!
+    private var lastElement: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +33,7 @@ class PMSlideControl: UIControl {
         self.scrollView = UIScrollView(frame: CGRectZero)
         self.scrollView.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.scrollView.showsHorizontalScrollIndicator = false
+        self.scrollView.delegate = self
         self.addSubview(self.scrollView)
         
         let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(0)-[scrollView]-(0)-|", options: nil, metrics: nil, views: ["scrollView": self.scrollView])
@@ -61,6 +70,7 @@ class PMSlideControl: UIControl {
             
             if previousView is UIScrollView {
                 self.createLabelWithText("\(idx)", attachToView: patternView, isFirst: true)
+                self.firstElement = patternView
             }
             
             self.createLabelWithText("\(5 + (idx * 5))", attachToView: patternView, isFirst: false)
@@ -76,6 +86,8 @@ class PMSlideControl: UIControl {
         let top = NSLayoutConstraint(item: lastView, attribute: .Top, relatedBy: .Equal, toItem: self.scrollView, attribute: .Top, multiplier: 1, constant: 0)
         let leading = NSLayoutConstraint(item: lastView, attribute: .Leading, relatedBy: .Equal, toItem: previousView, attribute: .Trailing, multiplier: 1, constant: 0)
         self.mainTrailingConstraint = NSLayoutConstraint(item: lastView, attribute: .Trailing, relatedBy: .Equal, toItem: self.scrollView, attribute: .Trailing, multiplier: 1, constant: 0)
+        
+        self.lastElement = lastView
         
         self.scrollView.addConstraints([leading, top, self.mainTrailingConstraint!])
     }
@@ -121,5 +133,31 @@ class PMSlideControl: UIControl {
         super.layoutSubviews()
         self.mainLeadingConstraint?.constant = (CGRectGetWidth(self.frame) / 2.0) - 1
         self.mainTrailingConstraint?.constant = -(CGRectGetWidth(self.frame) / 2.0)
+    }
+    
+    
+    /// MARK: UIScrollViewDelegate
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.calculateSeconds(scrollView.contentOffset.x)
+    }
+    
+    private func calculateSeconds(offsetX: CGFloat) {
+        let width = self.rangeWidth()
+        let percentage = fabs(offsetX / width)
+        
+        var calculatedValue: NSTimeInterval = NSTimeInterval(percentage) * 60
+        let seconds = calculatedValue % 60
+        if seconds < 30 {
+            calculatedValue = floor(calculatedValue)
+        } else {
+            calculatedValue = ceil(calculatedValue)
+        }
+        
+        println(calculatedValue)
+        self.delegate?.slideControlDidSelectTimeInterval(calculatedValue * 60.0)
+    }
+    
+    private func rangeWidth() -> CGFloat {
+        return CGRectGetMinX(self.firstElement.frame) - CGRectGetMinX(self.lastElement.frame)
     }
 }
