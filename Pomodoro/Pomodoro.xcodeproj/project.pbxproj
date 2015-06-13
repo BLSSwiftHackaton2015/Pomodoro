@@ -145,7 +145,6 @@
 		6DBA51331B2C2258002ECC3F /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
-				6D1D1E4F1B2C712B003C572F /* PMTimer.swift */,
 				6DBA51361B2C2258002ECC3F /* AppDelegate.swift */,
 				6DBA51381B2C2258002ECC3F /* PMMainViewController.swift */,
 				6DBA513A1B2C2258002ECC3F /* Main.storyboard */,
@@ -154,6 +153,7 @@
 				6DBA51341B2C2258002ECC3F /* Supporting Files */,
 				6DBA51561B2C2789002ECC3F /* PMNSUserDefaults.swift */,
 				6DBA518A1B2C4939002ECC3F /* PMSlideControl.swift */,
+				6D1D1E4F1B2C712B003C572F /* PMTimer.swift */,
 				6DBA51821B2C3E81002ECC3F /* PMTimerState.swift */,
 				6DBA51861B2C401F002ECC3F /* PMUIButton.swift */,
 				6DBA51881B2C425C002ECC3F /* PMUIColor.swift */,

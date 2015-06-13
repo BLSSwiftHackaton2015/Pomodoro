@@ -24,7 +24,7 @@ class PMMainViewController: UIViewController, PMSlideControlDelegate {
     private var timerState: PMTimerState {
         set {
             _timerState = newValue
-            NSUserDefaults.standardUserDefaults().setTimerState(newValue)
+//            NSUserDefaults.standardUserDefaults().setTimerState(newValue)
         }
         
         get { return _timerState }
@@ -72,7 +72,7 @@ class PMMainViewController: UIViewController, PMSlideControlDelegate {
     @IBAction func startPressed(sender: AnyObject) {
         self.timerState = .Running
         self.updateButtons(true)
-        timerController?.start(Int(self.selectedTimeInterval / 60))
+        timerController?.start(self.selectedTimeInterval)
         
         NSUserDefaults.standardUserDefaults().setStartTimeInterval(NSDate().timeIntervalSince1970)
     }
