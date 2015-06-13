@@ -13,6 +13,7 @@
 		6DBA513E1B2C2258002ECC3F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DBA513D1B2C2258002ECC3F /* Images.xcassets */; };
 		6DBA51411B2C2258002ECC3F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBA513F1B2C2258002ECC3F /* LaunchScreen.xib */; };
 		6DBA514D1B2C2258002ECC3F /* PomodoroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA514C1B2C2258002ECC3F /* PomodoroTests.swift */; };
+		F24DE0E61B2C25670008C21B /* PMTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24DE0E51B2C25670008C21B /* PMTimerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		6DBA51461B2C2258002ECC3F /* PomodoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBA514B1B2C2258002ECC3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DBA514C1B2C2258002ECC3F /* PomodoroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTests.swift; sourceTree = "<group>"; };
+		F24DE0E51B2C25670008C21B /* PMTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMTimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				6DBA513D1B2C2258002ECC3F /* Images.xcassets */,
 				6DBA513F1B2C2258002ECC3F /* LaunchScreen.xib */,
 				6DBA51341B2C2258002ECC3F /* Supporting Files */,
+				F24DE0E51B2C25670008C21B /* PMTimerViewController.swift */,
 			);
 			path = Pomodoro;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 		6DBA51291B2C2258002ECC3F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Tomasz Szulc";
 				TargetAttributes = {
@@ -212,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F24DE0E61B2C25670008C21B /* PMTimerViewController.swift in Sources */,
 				6DBA51391B2C2258002ECC3F /* ViewController.swift in Sources */,
 				6DBA51371B2C2258002ECC3F /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +414,7 @@
 				6DBA51521B2C2258002ECC3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6DBA51531B2C2258002ECC3F /* Build configuration list for PBXNativeTarget "PomodoroTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +423,7 @@
 				6DBA51551B2C2258002ECC3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
