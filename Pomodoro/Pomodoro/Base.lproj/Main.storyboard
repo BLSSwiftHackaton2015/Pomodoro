@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -31,7 +31,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AtX-RU-t7z">
-                                        <rect key="frame" x="20" y="0.0" width="271.5" height="50"/>
+                                        <rect key="frame" x="20" y="0.0" width="272" height="50"/>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                         <state key="normal" title="Stop">
@@ -41,8 +41,8 @@
                                             <action selector="stopPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XQO-I8-qrx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DX-Gt-9RN">
-                                        <rect key="frame" x="308.5" y="0.0" width="271.5" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DX-Gt-9RN">
+                                        <rect key="frame" x="309" y="0.0" width="272" height="50"/>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                         <state key="normal" title="Resume">
@@ -100,6 +100,77 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Tomato Count View Controller-->
+        <scene sceneID="LrY-3F-Cfq">
+            <objects>
+                <viewController id="kMp-3E-c8z" customClass="PMTomatoCountViewController" customModule="Pomodoro" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sSW-87-FoV"/>
+                        <viewControllerLayoutGuide type="bottom" id="uAu-cW-uqY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LeX-PG-eir">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRh-jv-obX" userLabel="Bottom Container">
+                                <rect key="frame" x="204" y="479" width="193" height="101"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0sn-Fi-gaX">
+                                        <rect key="frame" x="8" y="7" width="127" height="86"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="86" id="UG5-43-xnf"/>
+                                            <constraint firstAttribute="width" constant="127" id="ceQ-DB-RlF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXJ-bK-Lan">
+                                        <rect key="frame" x="143" y="8" width="42" height="86"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="TXJ-bK-Lan" firstAttribute="top" secondItem="wRh-jv-obX" secondAttribute="top" constant="8" id="0jW-cD-nGp"/>
+                                    <constraint firstItem="0sn-Fi-gaX" firstAttribute="top" secondItem="wRh-jv-obX" secondAttribute="top" constant="7" id="Hlt-cp-GMe"/>
+                                    <constraint firstItem="TXJ-bK-Lan" firstAttribute="leading" secondItem="0sn-Fi-gaX" secondAttribute="trailing" constant="8" id="PLJ-PE-XGw"/>
+                                    <constraint firstAttribute="bottom" secondItem="TXJ-bK-Lan" secondAttribute="bottom" constant="7" id="Pcq-rD-vFa"/>
+                                    <constraint firstAttribute="trailing" secondItem="TXJ-bK-Lan" secondAttribute="trailing" constant="8" id="qdm-G6-evy"/>
+                                    <constraint firstItem="0sn-Fi-gaX" firstAttribute="leading" secondItem="wRh-jv-obX" secondAttribute="leading" constant="8" id="rDd-Op-sDU"/>
+                                    <constraint firstAttribute="bottom" secondItem="0sn-Fi-gaX" secondAttribute="bottom" constant="8" id="rMI-T1-NaS"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ik1-wR-uDT">
+                                <rect key="frame" x="229" y="276" width="100" height="30"/>
+                                <state key="normal" title="startAnimation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startAnim:" destination="kMp-3E-c8z" eventType="touchUpInside" id="17c-ab-0yP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3P-bN-Drm">
+                                <rect key="frame" x="251" y="211" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="wRh-jv-obX" secondAttribute="centerX" id="01Y-uh-7Bi"/>
+                            <constraint firstItem="uAu-cW-uqY" firstAttribute="top" secondItem="wRh-jv-obX" secondAttribute="bottom" constant="20" id="IHG-gb-cWt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="startAnimation" destination="ik1-wR-uDT" id="CTv-gY-4c5"/>
+                        <outlet property="toRemove" destination="T3P-bN-Drm" id="Pwu-0Y-6NN"/>
+                        <outlet property="tomatoCounter" destination="TXJ-bK-Lan" id="UgW-w5-q7b"/>
+                        <outlet property="tomatoImage" destination="0sn-Fi-gaX" id="7SA-lJ-980"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eJr-Vb-bWM" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>

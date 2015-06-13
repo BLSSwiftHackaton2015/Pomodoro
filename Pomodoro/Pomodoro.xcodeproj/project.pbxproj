@@ -24,6 +24,7 @@
 		6DBA51831B2C3E81002ECC3F /* PMTimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA51821B2C3E81002ECC3F /* PMTimerState.swift */; };
 		6DBA51871B2C401F002ECC3F /* PMUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA51861B2C401F002ECC3F /* PMUIButton.swift */; };
 		6DBA51891B2C425C002ECC3F /* PMUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA51881B2C425C002ECC3F /* PMUIColor.swift */; };
+		EFD0FD4C1B2C5BCD00885E7A /* PMTomatoCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD0FD4B1B2C5BCD00885E7A /* PMTomatoCountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		6DBA51821B2C3E81002ECC3F /* PMTimerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMTimerState.swift; sourceTree = "<group>"; };
 		6DBA51861B2C401F002ECC3F /* PMUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMUIButton.swift; sourceTree = "<group>"; };
 		6DBA51881B2C425C002ECC3F /* PMUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMUIColor.swift; sourceTree = "<group>"; };
+		EFD0FD4B1B2C5BCD00885E7A /* PMTomatoCountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMTomatoCountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				6DBA51361B2C2258002ECC3F /* AppDelegate.swift */,
+				EFD0FD4B1B2C5BCD00885E7A /* PMTomatoCountViewController.swift */,
 				6DBA51381B2C2258002ECC3F /* PMMainViewController.swift */,
 				6DBA513A1B2C2258002ECC3F /* Main.storyboard */,
 				6DBA513D1B2C2258002ECC3F /* Images.xcassets */,
@@ -385,6 +388,7 @@
 				6DBA51571B2C2789002ECC3F /* PMNSUserDefaults.swift in Sources */,
 				6DBA51891B2C425C002ECC3F /* PMUIColor.swift in Sources */,
 				6DBA51871B2C401F002ECC3F /* PMUIButton.swift in Sources */,
+				EFD0FD4C1B2C5BCD00885E7A /* PMTomatoCountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
