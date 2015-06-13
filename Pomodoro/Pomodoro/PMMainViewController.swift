@@ -8,14 +8,18 @@
 
 import UIKit
 
-class PMMainViewController: UIViewController {
+class PMMainViewController: UIViewController, PMSlideControlDelegate {
     
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var stopButton: UIButton!
     @IBOutlet private weak var resumeButton: UIButton!
     @IBOutlet private weak var pauseButton: UIButton!
     @IBOutlet private weak var sliderControl: PMSlideControl!
+    @IBOutlet private weak var timeLabel: UILabel!
     
+    private var selectedTimeInterval: NSTimeInterval = 0
+    
+    private var timerController : PMTimer?;
     private var _timerState: PMTimerState = .Stopped
     private var timerState: PMTimerState {
         set {
@@ -26,11 +30,11 @@ class PMMainViewController: UIViewController {
         get { return _timerState }
     }
     
-    var timerController : PMTimer?;
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.sliderControl.delegate = self
+        self.timeLabel.textColor = UIColor.whiteColor()
+        
         _timerState = NSUserDefaults.standardUserDefaults().getTimerState()
         
         self.view.backgroundColor = UIColor.customRed()
@@ -42,15 +46,20 @@ class PMMainViewController: UIViewController {
         self.updateButtons(false)
         
         self.timerController = PMTimer()
-        self.timerController?.onUpdate = { (secondsLeft: Int) in
-            let seconds = secondsLeft % 60
-            let minutes = (secondsLeft / 60) % 60
-//            timerLabel.text = String(format: "%02d:%02d", arguments: [minutes , seconds])
+        self.timerController?.onUpdate = { (secondsLeft: NSTimeInterval) in
+            self.updateLabelWithSeconds(secondsLeft)
         }
         
         self.timerController?.onCycleFinished = {
             println("tu dodaj pomidora!!!")
         }
+    }
+    
+    private func updateLabelWithSeconds(ti: NSTimeInterval) {
+        let seconds: Int = Int(ti % 60)
+        let minutes: Int = Int(ti / 60)
+        self.timeLabel.text = String(format: "%02d:%02d", arguments: [minutes , seconds])
+        println(self.timeLabel.text)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -61,11 +70,11 @@ class PMMainViewController: UIViewController {
     
     /// MARK: - Buttons Logic
     @IBAction func startPressed(sender: AnyObject) {
-//        self.timerState = .Running
-//        self.updateButtons(true)
-//        timerController?.start(picker.selectedRowInComponent(0))
+        self.timerState = .Running
+        self.updateButtons(true)
+        timerController?.start(Int(self.selectedTimeInterval / 60))
         
-//        NSUserDefaults.standardUserDefaults().setStartTimeInterval(NSTimeInterval())
+        NSUserDefaults.standardUserDefaults().setStartTimeInterval(NSDate().timeIntervalSince1970)
     }
     
     @IBAction func stopPressed(sender: AnyObject) {
@@ -105,6 +114,12 @@ class PMMainViewController: UIViewController {
     private func changeStateOfButton(button: UIButton, visible: Bool) {
         button.alpha = visible ? 1 : 0
         button.enabled = visible == true
+    }
+    
+    /// MARK: UISlideControlDelegate
+    func slideControlDidSelectTimeInterval(ti: NSTimeInterval) {
+        self.selectedTimeInterval = ti
+        self.updateLabelWithSeconds(ti)
     }
 }
 

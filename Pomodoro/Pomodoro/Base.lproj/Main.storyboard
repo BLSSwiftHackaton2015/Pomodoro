@@ -42,7 +42,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DX-Gt-9RN">
-                                        <rect key="frame" x="308.5" y="0.0" width="271.5" height="50"/>
+                                        <rect key="frame" x="308" y="0.0" width="271.5" height="50"/>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                         <state key="normal" title="Resume">
@@ -90,14 +90,22 @@
                                     <constraint firstAttribute="height" constant="108" id="3Sz-SA-wBs"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGw-wj-r4s">
+                                <rect key="frame" x="175" y="90" width="250.5" height="114.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="100"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="ZGw-wj-r4s" secondAttribute="centerX" id="7hu-RO-A9a"/>
                             <constraint firstItem="ykU-Zo-bHW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="8jB-ht-g25"/>
                             <constraint firstAttribute="trailing" secondItem="ykU-Zo-bHW" secondAttribute="trailing" id="TZq-Xx-uyg"/>
                             <constraint firstItem="Jqh-74-uQQ" firstAttribute="top" secondItem="ykU-Zo-bHW" secondAttribute="bottom" constant="60" id="YHu-4O-FtY"/>
                             <constraint firstAttribute="trailing" secondItem="Jqh-74-uQQ" secondAttribute="trailing" id="b2o-Zh-0cI"/>
                             <constraint firstItem="Jqh-74-uQQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bka-Z3-sv3"/>
+                            <constraint firstItem="ZGw-wj-r4s" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="70" id="gcn-Xi-JQO"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Jqh-74-uQQ" secondAttribute="bottom" id="jRn-aS-zbO"/>
                         </constraints>
                     </view>
@@ -107,6 +115,7 @@
                         <outlet property="sliderControl" destination="ykU-Zo-bHW" id="Kdm-rj-9uc"/>
                         <outlet property="startButton" destination="dCv-jT-JQ3" id="Far-9S-paW"/>
                         <outlet property="stopButton" destination="AtX-RU-t7z" id="xzP-2Q-nYC"/>
+                        <outlet property="timeLabel" destination="ZGw-wj-r4s" id="bwn-e8-FfC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

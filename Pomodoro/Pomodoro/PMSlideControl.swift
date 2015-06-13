@@ -142,6 +142,10 @@ class PMSlideControl: UIControl, UIScrollViewDelegate {
     }
     
     private func calculateSeconds(offsetX: CGFloat) {
+        if (offsetX < 0) {
+            return
+        }
+        
         let width = self.rangeWidth()
         let percentage = fabs(offsetX / width)
         
@@ -153,7 +157,8 @@ class PMSlideControl: UIControl, UIScrollViewDelegate {
             calculatedValue = ceil(calculatedValue)
         }
         
-        println(calculatedValue)
+        calculatedValue = max(0, min(calculatedValue, 60))
+        
         self.delegate?.slideControlDidSelectTimeInterval(calculatedValue * 60.0)
     }
     

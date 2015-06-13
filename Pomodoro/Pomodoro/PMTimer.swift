@@ -11,13 +11,13 @@ import UIKit
 
 class PMTimer : NSObject {
     
-    var onUpdate: ((Int) -> ())?
+    var onUpdate: ((NSTimeInterval) -> ())?
     var onCycleFinished: (() -> ())?
     
     var timer: NSTimer?
     
-    var secondsLeft:Int = 0
-    var minutesInCycle:Int = 0
+    var secondsLeft:NSTimeInterval = 0
+    var minutesInCycle:NSTimeInterval = 0
     
     enum TimerState{case Running; case Stopped; case Paused}
     var timerState : TimerState = .Stopped
@@ -53,7 +53,7 @@ class PMTimer : NSObject {
     {
         timerState = TimerState.Running
   
-        minutesInCycle = 1+minutes
+        minutesInCycle = NSTimeInterval(1+minutes)
         secondsLeft = minutesInCycle * 60
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
