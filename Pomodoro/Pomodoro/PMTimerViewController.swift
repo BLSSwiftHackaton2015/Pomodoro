@@ -71,7 +71,7 @@ class PMTimerViewController: UIViewController, UIPickerViewDelegate , UIPickerVi
         }
         else
         {
-            print("WTF? call for wait called in state \(timerState)")
+            print("WTF? wait called in state \(timerState)")
         }
     }
     

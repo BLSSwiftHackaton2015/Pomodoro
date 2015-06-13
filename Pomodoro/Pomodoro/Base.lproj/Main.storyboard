@@ -78,19 +78,37 @@
                                     <constraint firstItem="3DX-Gt-9RN" firstAttribute="centerY" secondItem="AtX-RU-t7z" secondAttribute="centerY" id="pml-z7-gnH"/>
                                 </constraints>
                             </view>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Pg-P7-h8V">
+                                <rect key="frame" x="0.0" y="20" width="600" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="qDb-eU-3gp"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="216" id="qfQ-O3-YsR"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bs-bo-bDX">
+                                <rect key="frame" x="140" y="289" width="320" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8Pg-P7-h8V" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="FFd-T5-ahW"/>
+                            <constraint firstAttribute="trailing" secondItem="8Pg-P7-h8V" secondAttribute="trailing" id="Y16-NS-cRK"/>
                             <constraint firstAttribute="trailing" secondItem="Jqh-74-uQQ" secondAttribute="trailing" id="b2o-Zh-0cI"/>
                             <constraint firstItem="Jqh-74-uQQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bka-Z3-sv3"/>
+                            <constraint firstItem="8Pg-P7-h8V" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="dl6-7M-CUh"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Jqh-74-uQQ" secondAttribute="bottom" id="jRn-aS-zbO"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="pauseButton" destination="9ec-Ns-7WK" id="rSU-30-vV1"/>
+                        <outlet property="picker" destination="8Pg-P7-h8V" id="fKn-eB-1dp"/>
                         <outlet property="resumeButton" destination="3DX-Gt-9RN" id="3ul-Rk-hR0"/>
                         <outlet property="startButton" destination="dCv-jT-JQ3" id="Far-9S-paW"/>
                         <outlet property="stopButton" destination="AtX-RU-t7z" id="xzP-2Q-nYC"/>
+                        <outlet property="timerLabel" destination="6bs-bo-bDX" id="Fnr-lO-3nb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -109,12 +127,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Pg-P7-h8V">
-                                <rect key="frame" x="0.0" y="20" width="600" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="qDb-eU-3gp"/>
-                                </constraints>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VQ-Ad-cYL">
                                 <rect key="frame" x="143" y="329" width="34" height="30"/>
                                 <state key="normal" title="Start"/>
@@ -122,19 +134,8 @@
                                     <action selector="startClicked" destination="QHK-nm-l6a" eventType="touchUpInside" id="cri-PO-rk8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bs-bo-bDX">
-                                <rect key="frame" x="0.0" y="273" width="320" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="8Pg-P7-h8V" firstAttribute="top" secondItem="hln-kX-SSX" secondAttribute="bottom" id="0n0-7t-Nbf"/>
-                            <constraint firstItem="8Pg-P7-h8V" firstAttribute="leading" secondItem="G5Z-Mk-bJG" secondAttribute="leading" id="Sox-RC-1sY"/>
-                            <constraint firstAttribute="trailing" secondItem="8Pg-P7-h8V" secondAttribute="trailing" id="ZJY-aA-Bgw"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="pickerr" destination="8Pg-P7-h8V" id="iYt-Wt-bvi"/>
@@ -144,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUW-9y-yC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="387"/>
+            <point key="canvasLocation" x="990" y="350"/>
         </scene>
     </scenes>
 </document>
