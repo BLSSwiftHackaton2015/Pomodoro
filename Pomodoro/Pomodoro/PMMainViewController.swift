@@ -28,14 +28,19 @@ class PMMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         _timerState = NSUserDefaults.standardUserDefaults().getTimerState()
-        self.startButton.backgroundColor = UIColor.clearColor()
-        self.stopButton.backgroundColor = UIColor.clearColor()
-        self.resumeButton.backgroundColor = UIColor.clearColor()
-        self.pauseButton.backgroundColor = UIColor.clearColor()
+        
+        self.view.backgroundColor = UIColor.customRed()
+        self.startButton.makeWhiteWithRedText()
+        self.stopButton.makeWhiteWithRedText()
+        self.resumeButton.makeWhiteWithRedText()
+        self.pauseButton.makeWhiteWithRedText()
         
         self.updateButtons(false)
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
     
     /// MARK: - Buttons Logic
     @IBAction func startPressed(sender: AnyObject) {

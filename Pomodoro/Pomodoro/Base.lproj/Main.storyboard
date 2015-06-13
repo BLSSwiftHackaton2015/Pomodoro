@@ -17,11 +17,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jqh-74-uQQ" userLabel="Buttons Container">
-                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="530" width="600" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCv-jT-JQ3">
-                                        <rect key="frame" x="20" y="10" width="560" height="30"/>
+                                        <rect key="frame" x="20" y="0.0" width="560" height="50"/>
                                         <color key="backgroundColor" red="0.92435686080000001" green="0.55318055820000001" blue="0.79626246020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                         <state key="normal" title="Start">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -30,8 +31,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AtX-RU-t7z">
-                                        <rect key="frame" x="20" y="10" width="271.5" height="30"/>
+                                        <rect key="frame" x="20" y="0.0" width="271.5" height="50"/>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                         <state key="normal" title="Stop">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -40,8 +42,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DX-Gt-9RN">
-                                        <rect key="frame" x="308.5" y="10" width="271.5" height="30"/>
+                                        <rect key="frame" x="308.5" y="0.0" width="271.5" height="50"/>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                         <state key="normal" title="Resume">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -50,8 +53,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ec-Ns-7WK">
-                                        <rect key="frame" x="20" y="10" width="560" height="30"/>
+                                        <rect key="frame" x="20" y="0.0" width="560" height="50"/>
                                         <color key="backgroundColor" red="1" green="0.94117647059999998" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                         <state key="normal" title="Pause">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -60,21 +64,24 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="9ec-Ns-7WK" secondAttribute="centerY" id="0Mu-aF-XW2"/>
                                     <constraint firstAttribute="trailing" secondItem="3DX-Gt-9RN" secondAttribute="trailing" constant="20" id="2D7-7R-0Xb"/>
                                     <constraint firstItem="AtX-RU-t7z" firstAttribute="leading" secondItem="Jqh-74-uQQ" secondAttribute="leading" constant="20" id="2WD-FY-yOc"/>
                                     <constraint firstItem="3DX-Gt-9RN" firstAttribute="width" secondItem="AtX-RU-t7z" secondAttribute="width" id="5Br-bb-FBw"/>
                                     <constraint firstAttribute="trailing" secondItem="9ec-Ns-7WK" secondAttribute="trailing" constant="20" id="8V7-AC-1uz"/>
-                                    <constraint firstAttribute="centerY" secondItem="AtX-RU-t7z" secondAttribute="centerY" id="Nhl-dU-6lU"/>
+                                    <constraint firstItem="AtX-RU-t7z" firstAttribute="top" secondItem="Jqh-74-uQQ" secondAttribute="top" id="FZV-4W-yWL"/>
+                                    <constraint firstAttribute="bottom" secondItem="3DX-Gt-9RN" secondAttribute="bottom" constant="20" id="PZR-dc-gzm"/>
+                                    <constraint firstItem="3DX-Gt-9RN" firstAttribute="top" secondItem="Jqh-74-uQQ" secondAttribute="top" id="Qdl-TP-pFW"/>
+                                    <constraint firstAttribute="bottom" secondItem="dCv-jT-JQ3" secondAttribute="bottom" constant="20" id="SiW-Ak-ZBS"/>
                                     <constraint firstAttribute="trailing" secondItem="dCv-jT-JQ3" secondAttribute="trailing" constant="20" id="V1Q-di-F8l"/>
+                                    <constraint firstAttribute="bottom" secondItem="AtX-RU-t7z" secondAttribute="bottom" constant="20" id="VkO-F7-GjO"/>
                                     <constraint firstItem="3DX-Gt-9RN" firstAttribute="leading" secondItem="AtX-RU-t7z" secondAttribute="trailing" constant="17" id="W4h-Z7-hXk"/>
-                                    <constraint firstAttribute="centerY" secondItem="dCv-jT-JQ3" secondAttribute="centerY" id="X4Z-Zi-3wC"/>
+                                    <constraint firstItem="dCv-jT-JQ3" firstAttribute="top" secondItem="Jqh-74-uQQ" secondAttribute="top" id="YvC-f4-aJL"/>
                                     <constraint firstItem="dCv-jT-JQ3" firstAttribute="leading" secondItem="Jqh-74-uQQ" secondAttribute="leading" constant="20" id="e15-Zf-1dD"/>
                                     <constraint firstItem="9ec-Ns-7WK" firstAttribute="leading" secondItem="Jqh-74-uQQ" secondAttribute="leading" constant="20" id="hWD-mW-69c"/>
-                                    <constraint firstAttribute="height" constant="50" id="kxt-fl-Zoa"/>
-                                    <constraint firstItem="3DX-Gt-9RN" firstAttribute="centerY" secondItem="AtX-RU-t7z" secondAttribute="centerY" id="pml-z7-gnH"/>
+                                    <constraint firstAttribute="height" constant="70" id="kxt-fl-Zoa"/>
+                                    <constraint firstAttribute="bottom" secondItem="9ec-Ns-7WK" secondAttribute="bottom" constant="20" id="mK9-Fj-Ua8"/>
+                                    <constraint firstItem="9ec-Ns-7WK" firstAttribute="top" secondItem="Jqh-74-uQQ" secondAttribute="top" id="wqD-4l-rdT"/>
                                 </constraints>
                             </view>
                         </subviews>
